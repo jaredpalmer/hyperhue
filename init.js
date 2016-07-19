@@ -39,7 +39,7 @@ const createUser = (host) => {
               console.log('config file written to `%s`\n', configfile);
               console.log(s);
               console.log('\n')
-
+              console.log(`CMD + R to reload Hyperterm with HyperHue installed`)
           })
 
 }
