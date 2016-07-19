@@ -5,6 +5,10 @@ based on your Philips Hue lights.
 
 [Demo Video](https://twitter.com/jaredpalmer/status/755539489242611712)
 
+## Screenshot
+
+![HypeHue Screenshot](https://cloud.githubusercontent.com/assets/4060187/16970018/2a0e67e8-4de7-11e6-9c19-6bec88ce0941.png)
+
 ## How to use
 
 1. Install [HyperTerm](https://hyperterm.org) and add `hyperhue`
