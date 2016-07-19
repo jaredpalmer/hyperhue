@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 
 exports.middleware = (store) => (next) => (action) => {
-  if ('CONFIG_LOAD' === action.type) {
+  if ('CONFIG_LOAD' === action.type || 'CONFIG_RELOAD' === action.type) {
     const homedir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE
     const configfile = path.join(homedir, '.hyperhue.json')
     try {
