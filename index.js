@@ -3,11 +3,11 @@ const fs = require('fs')
 const path = require('path')
 
 exports.middleware = (store) => (next) => (action) => {
-  const homedir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE
-  const configfile = path.join(homedir, '.hyperhue.json')
-  try {
-    const hueConfig = JSON.parse(fs.readFileSync(configfile, 'utf-8'))
-    if ('CONFIG_LOAD' === action.type) {
+  if ('CONFIG_LOAD' === action.type) {
+    const homedir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE
+    const configfile = path.join(homedir, '.hyperhue.json')
+    try {
+      const hueConfig = JSON.parse(fs.readFileSync(configfile, 'utf-8'))
       const { host, username, light } = hueConfig
       const api = new Hue.HueApi(host, username)
       return api
@@ -23,14 +23,12 @@ exports.middleware = (store) => (next) => (action) => {
                 console.log(e)
                 return next(action)
               })
-    } else {
+    } catch (e) {
+      console.log('You need to run HyperHue init.js first. Copy and paste the following into your terminal. Press the link button on your brige BEFORE your run it.')
+      console.log('node ~/.hyperterm_plugins/node_modules/hyperhue/init.js')
       next(action)
     }
-  } catch (e) {
-    console.log('You need to run HyperHue init.js first. Copy and paste the following into your terminal.')
-    console.log('\n')
-    console.log('node ~/.hyperterm_plugins/node_modules/hyperhue/init.js')
-    console.log('\n')
+  } else {
     next(action)
   }
 }
