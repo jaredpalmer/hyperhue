@@ -1,0 +1,30 @@
+{
+  "name": "hyperhue",
+  "version": "0.0.1",
+  "author": "@jaredpalmer",
+  "scripts": {
+    "postinstall": "node bin/hyperhue"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jaredpalmer/hyperhue.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jaredpalmer/hyperhue/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "keywords": [
+    "hyperterm"
+  ],
+  "description": "A Hyperterm theme that reacts to your Philip Hue lights",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "node-hue-api": "^2.2.0",
+    "prompt": "^1.0.0"
+  }
+}
