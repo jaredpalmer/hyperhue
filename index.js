@@ -29,7 +29,7 @@ exports.middleware = (store) => (next) => (action) => {
   } catch (e) {
     console.log('You need to run HyperHue init.js first. Copy and paste the following into your terminal.')
     console.log('\n')
-    console.log(`node ~/.hyperterm_plugins/node_modules/hyperhue/init.js`
+    console.log(`node ~/.hyperterm_plugins/node_modules/hyperhue/init.js`)
     console.log('\n')
     next(action)
   }
