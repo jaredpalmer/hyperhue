@@ -3,6 +3,8 @@
 A special theme for [HyperTerm](https://hyperterm.org) that changes color
 based on your Philips Hue lights.
 
+[Demo Video](https://twitter.com/jaredpalmer/status/755539489242611712)
+
 ## How to use
 
 1. Install [HyperTerm](https://hyperterm.org) and add `hyperhue`
