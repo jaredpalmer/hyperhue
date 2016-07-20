@@ -1,4 +1,4 @@
-# HyperHue
+# HyperHue 💡 🌈
 
 A special theme for [HyperTerm](https://hyperterm.org) that changes color
 based on your Philips Hue lights.
