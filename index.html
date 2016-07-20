@@ -1,0 +1,194 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>HyperHue</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1.0" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@jaredpalmer" />
+  <meta name="og:title" content="HyperHue" />
+  <meta name="og:url" content="https://github.com/jaredpalmer/hyperhue" />
+  <meta name="description" content="HyperHue: A HyperTerm theme that responds to your Philips Hue lights." />
+  <meta name="og:description" content="HyperHue: A HyperTerm theme that responds to your Philips Hue lights." />
+  <meta name="og:image" content="https://github.com/jaredpalmer/hyperhue/hyperhue.jpg" />
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    text-rendering: geometricPrecision;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    background: #000;
+    color: #ccc;
+    font: 12px Menlo, "DejaVu Sans Mono", "Lucida Console", monospace;
+    line-height: 1.5;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  h2, p, pre {
+    margin-bottom: 24px;
+  }
+
+  pre {
+    overflow-x: scroll;
+    width: 100%;
+  }
+
+  pre, code {
+    font: 12px Menlo, "DejaVu Sans Mono", "Lucida Console", monospace;
+  }
+
+  #header {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    text-align: center;
+  }
+
+  #header span {
+    color: #999;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  #header a {
+    color: #999;
+    text-decoration: none;
+  }
+
+  #header a:hover {
+    color: #FF2E88;
+  }
+
+  .hyperterm {
+    color: #999;
+  }
+
+  .logo {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    margin: 80px 0 16px;
+    font-size: 16px;
+  }
+  .tagline {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    margin-bottom: 80px;
+  }
+
+  .terminal {
+    border: 1px solid rgb(255, 255, 0);
+    border-radius: 5px;
+    box-shadow: 0px 30px 200px rgba(255,255,0,.5);
+    width: 100%;
+    max-width: 519px;
+    height: auto;
+  }
+  .red {
+    color: red;
+  }
+  .yellow {
+    color: yellow;
+  }
+  .blue {
+    color: #00c0ff;
+  }
+  .top {
+    /*height: 100vh;
+    width: 100vh;*/
+    position: relative;
+    text-align: center;
+    max-width: 100%;
+    padding: 2rem;
+  }
+
+  #terminal-wrapper {
+    display: relative;
+    margin: 0 auto 5rem;
+    max-width: 519px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+
+  .instructions {
+    text-align: left;
+    margin: 0 auto;
+    max-width: 519px;
+  }
+
+  footer {
+    margin: 5rem auto;
+    text-align: center;
+    color: #ccc;
+  }
+
+  footer a {
+    color: #FF2E88;
+  }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <span><a href="http://github.com/jaredpalmer/hyperhue" target="_blank">GitHub</a></span>
+    <span>License: MIT</span>
+  </div>
+  <div class="top">
+    <h1 class="logo">Hyper<span class="red">H</span><span class="yellow">u</span><span class="blue">e</span></h1>
+    <div class="tagline">A HyperTerm theme that responds to your Philips Hue lights.</div>
+    <div id="terminal-wrapper">
+      <img id="terminal" class="terminal" src="/hyperhue_cutout.png" alt="HyperHue HyperTerm Theme">
+    </div>
+    <div class="instructions">
+      <h2># Install</h2>
+      <p>1. Install <a class="hue" href="https://hyperterm.org" target="_blank">HyperTerm</a> and add <code class="hue">'hyperhue'</code> to <code class="hue">plugins</code> in <code class="hue">~/.hyperterm.js</code></p>
+      <p>2. Press the button on your Hue Bridge.</p>
+      <p>3. Run the HyperHue installation script in your terminal. If you have more than one Hue Bridge, you can select which one you want to sync to.</p>
+      <pre><code class="hue">node ~/.hyperterm_plugins/node_modules/hyperhue/init.js</code></pre>
+      <p>The script generates a new bridge user on your behalf and stores your hostname and light number in ~/.hyperhue.json. You can change light numbers by simply editing the file.</p>
+      <p>4. <code class="hue">CMD+R</code> or View > Full Reload</p>
+    </div>
+  </div>
+
+  <footer>
+    Copyright © 2016 <a class="hue" href="http://twitter.com/jaredpalmer" target="_blank">Jared Palmer</a>. All Rights Reserved.</a>
+  </footer>
+
+  <script>
+  function changeBackground() {
+    //change color every frame
+    //initialise colors ( hue, lightness)
+    var hue = 360;
+    var light = 0;
+
+    function changeHue (){
+      var col1 = Math.abs((hue % 720) - 360);
+      var col2 = Math.abs( ( (hue+90) % 720) - 360);
+      hue++ ;
+
+      //values for light adjustment not used
+      var light1 = Math.abs( (light % 40) - 20)+60;
+      var light2 = Math.abs( ( (light+10) % 40) - 20)+60;
+      light++ ;
+
+      document.getElementById('terminal').style.borderColor = 'hsl('+col1 +',70%, 75%)';
+      document.getElementById('terminal').style.boxShadow = '0px 10px 30px rgba(0,0,0,.36), 0px 30px 200px hsla('+col1 +',90%, 75%, .5)';
+      document.getElementById('terminal-wrapper').style.backgroundColor = 'hsl('+col1 +',90%, 75%)';
+      var x = document.getElementsByClassName('hue');
+      var i;
+      for (i = 0; i < x.length; i++) {
+          x[i].style.color = 'hsl('+col1 +',90%, 75%)';
+      }
+
+    }
+    setInterval	(changeHue, 64);
+  }
+  changeBackground();
+  </script>
+</body>
+</html>
