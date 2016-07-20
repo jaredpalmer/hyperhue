@@ -49,5 +49,5 @@ exports.reduceUI = (state, action) => {
                     }
                   `)
   }
-  return state;
+  return state
 }
