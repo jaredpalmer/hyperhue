@@ -12,133 +12,139 @@
   <meta name="og:description" content="HyperHue: A HyperTerm theme that responds to your Philips Hue lights." />
   <meta name="og:image" content="https://jaredpalmer.github.io/hyperhue/hyperhue.jpg" />
   <style>
-  * {
-    margin: 0;
-    padding: 0;
-    text-rendering: geometricPrecision;
-    box-sizing: border-box;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      text-rendering: optimizeLegibility;
+      box-sizing: border-box;
+    }
 
-  html, body {
-    background: #000;
-    color: #ccc;
-    font: 13px Menlo, "DejaVu Sans Mono", "Lucida Console", monospace;
-    line-height: 1.5;
-  }
+    html, body {
+      background: #000;
+      color: #ccc;
+      font: 13px Menlo, "DejaVu Sans Mono", "Lucida Console", monospace;
+      line-height: 1.5;
+    }
 
-  h2 {
-    font-size: 14px;
-  }
+    h2 {
+      font-size: 14px;
+    }
 
-  h2, p, pre {
-    margin-bottom: 24px;
-  }
+    h2, p, pre {
+      margin-bottom: 24px;
+    }
 
-  pre {
-    overflow-x: scroll;
-    width: 100%;
-  }
+    pre {
+      overflow-x: scroll;
+      width: 100%;
+    }
 
-  pre, code {
-    font: 13px Menlo, "DejaVu Sans Mono", "Lucida Console", monospace;
-  }
+    pre, code {
+      font: 13px Menlo, "DejaVu Sans Mono", "Lucida Console", monospace;
+    }
 
-  #header {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 10000;
-    text-align: center;
-  }
+    #header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 2rem;
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-  #header span {
-    color: #999;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    display: inline-block;
-    margin-right: 10px;
-  }
+    #header span {
+      color: #999;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      display: inline-block;
+      margin-right: 10px;
+    }
 
-  #header a {
-    color: #999;
-    text-decoration: none;
-  }
+    #header a {
+      color: #999;
+      text-decoration: none;
+    }
 
-  #header a:hover {
-    color: #FF2E88;
-  }
+    #header a:hover {
+      color: #FF2E88;
+    }
 
-  .hyperterm {
-    color: #999;
-  }
+    .hyperterm {
+      color: #999;
+    }
 
-  .logo {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    font-weight: 500;
-    margin: 80px 0 16px;
-    font-size: 28px;
-    color: #fff;
-  }
-  
-  .tagline {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-    margin-bottom: 80px;
-    font-size: 16px;
-  }
+    .logo {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      font-weight: 500;
+      margin: 80px 0 16px;
+      font-size: 28px;
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  .terminal {
-    border: 1px solid rgb(255, 255, 0);
-    border-radius: 5px;
-    box-shadow: 0px 30px 200px rgba(255,255,0,.5);
-    width: 100%;
-    max-width: 519px;
-    height: auto;
-  }
-  .red {
-    color: red;
-  }
-  .yellow {
-    color: yellow;
-  }
-  .blue {
-    color: #00c0ff;
-  }
-  .top {
-    position: relative;
-    text-align: center;
-    max-width: 100%;
-    padding: 2rem;
-  }
+    .tagline {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      margin-bottom: 80px;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  #terminal-wrapper {
-    display: relative;
-    margin: 0 auto 5rem;
-    max-width: 519px;
-    background-color: #fff;
-    border-radius: 5px;
-  }
+    .terminal {
+      border: 1px solid rgb(255, 255, 0);
+      border-radius: 5px;
+      box-shadow: 0px 30px 200px rgba(255,255,0,.5);
+      width: 100%;
+      max-width: 519px;
+      height: auto;
+    }
+    .red {
+      color: red;
+    }
+    .yellow {
+      color: yellow;
+    }
+    .blue {
+      color: #00c0ff;
+    }
+    .top {
+      position: relative;
+      text-align: center;
+      max-width: 100%;
+      padding: 2rem;
+    }
 
-  .instructions {
-    text-align: left;
-    margin: 0 auto;
-    max-width: 519px;
-  }
+    #terminal-wrapper {
+      display: relative;
+      margin: 0 auto 5rem;
+      max-width: 519px;
+      background-color: #fff;
+      border-radius: 5px;
+    }
 
-  footer {
-    margin: 5rem auto;
-    text-align: center;
-    color: #ccc;
-    padding: 0 2rem;
-  }
+    .instructions {
+      text-align: left;
+      margin: 0 auto;
+      max-width: 519px;
+    }
 
-  footer a {
-    color: #FF2E88;
-  }
+    footer {
+      margin: 5rem auto;
+      text-align: center;
+      color: #ccc;
+      padding: 0 2rem;
+    }
+
+    footer a {
+      color: #FF2E88;
+    }
   </style>
 </head>
 <body>
   <div id="header">
-    <span><a href="http://github.com/jaredpalmer/hyperhue" target="_blank">GitHub</a></span>
-    <span>License: MIT</span>
+    <div><a href="http://twitter.com/jaredpalmer" target="_blank">@jaredpalmer</a></div>
+    <div><a href="http://github.com/jaredpalmer/hyperhue" target="_blank">GitHub</a></div>
   </div>
   <div class="top">
     <h1 class="logo">Hyper<span class="red">H</span><span class="yellow">u</span><span class="blue">e</span></h1>
@@ -162,35 +168,35 @@
   </footer>
 
   <script>
-  function changeBackground() {
-    //change color every frame
-    //initialise colors ( hue, lightness)
-    var hue = 360;
-    var light = 0;
+    function changeBackground() {
+      //change color every frame
+      //initialise colors ( hue, lightness)
+      var hue = 360;
+      var light = 0;
 
-    function changeHue (){
-      var col1 = Math.abs((hue % 720) - 360);
-      var col2 = Math.abs( ( (hue+90) % 720) - 360);
-      hue++ ;
+      function changeHue (){
+        var col1 = Math.abs((hue % 720) - 360);
+        var col2 = Math.abs( ( (hue+90) % 720) - 360);
+        hue++ ;
 
-      //values for light adjustment not used
-      var light1 = Math.abs( (light % 40) - 20)+60;
-      var light2 = Math.abs( ( (light+10) % 40) - 20)+60;
-      light++ ;
+        //values for light adjustment not used
+        var light1 = Math.abs( (light % 40) - 20)+60;
+        var light2 = Math.abs( ( (light+10) % 40) - 20)+60;
+        light++ ;
 
-      document.getElementById('terminal').style.borderColor = 'hsl('+col1 +',70%, 75%)';
-      document.getElementById('terminal').style.boxShadow = '0px 10px 30px rgba(0,0,0,.36), 0px 30px 200px hsla('+col1 +',90%, 75%, .5)';
-      document.getElementById('terminal-wrapper').style.backgroundColor = 'hsl('+col1 +',90%, 75%)';
-      var x = document.getElementsByClassName('hue');
-      var i;
-      for (i = 0; i < x.length; i++) {
-          x[i].style.color = 'hsl('+col1 +',90%, 75%)';
+        document.getElementById('terminal').style.borderColor = 'hsl('+col1 +',70%, 75%)';
+        document.getElementById('terminal').style.boxShadow = '0px 10px 30px rgba(0,0,0,.36), 0px 30px 200px hsla('+col1 +',90%, 75%, .5)';
+        document.getElementById('terminal-wrapper').style.backgroundColor = 'hsl('+col1 +',90%, 75%)';
+        var x = document.getElementsByClassName('hue');
+        var i;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.color = 'hsl('+col1 +',90%, 75%)';
+        }
+
       }
-
+      setInterval	(changeHue, 64);
     }
-    setInterval	(changeHue, 64);
-  }
-  changeBackground();
+    changeBackground();
   </script>
 </body>
 </html>
