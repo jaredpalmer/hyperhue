@@ -20,6 +20,7 @@ to `plugins` in `~/.hyperterm.js`.
 ### License 
 MIT
 
+Note: This is not an official plugin, and isn't affiliated with Philips Hue.
 
 ---
 GitHub: <a href="https://github.com/jaredpalmer">@jaredpalmer</a>
