@@ -42,12 +42,12 @@ exports.reduceUI = (state, action) => {
                   .set('css', `
                     ${state.css || ''}
                     .tabs_nav .tabs_list .tab_text {
-                      color: ${action.payload};
+                      color: ${action.payload}
                     }
                     .tabs_nav .tabs_title {
-                      color: ${action.payload};
+                      color: ${action.payload}
                     }
                   `)
   }
   return state;
-};
+}
