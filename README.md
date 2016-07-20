@@ -17,13 +17,15 @@ to `plugins` in `~/.hyperterm.js`.
 3. In HyperTerm, run `node ~/.hyperterm_plugins/node_modules/hyperhue/init.js` . The script generates a new bridge user on your behalf and stores your hostname and light number in `~/.hyperhue.json`. You can change light numbers by simply editing the file.
 4. `CMD+R` or View > Full Reload
 
-## Screenshot
+## What does it look like?
+Styled after the demo theme Hyperyellow. 
 
+![HyperHue](https://cloud.githubusercontent.com/assets/4060187/16994601/0df397e2-4e76-11e6-92b5-2bad17a81860.gif)
 
 ### License 
 MIT
 
-Note: This is not an official plugin, and isn't affiliated with Philips Hue.
+Note: This isn't affiliated with Philips Hue.
 
 ---
 GitHub: <a href="https://github.com/jaredpalmer">@jaredpalmer</a>
