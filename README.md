@@ -3,11 +3,9 @@
 A special theme for [HyperTerm](https://hyperterm.org) that changes color
 based on your Philips Hue lights.
 
+![HyperHue](https://cloud.githubusercontent.com/assets/4060187/16994601/0df397e2-4e76-11e6-92b5-2bad17a81860.gif)
+
 [Demo Video](https://twitter.com/jaredpalmer/status/755539489242611712)
-
-## Screenshot
-
-![HypeHue Screenshot](https://cloud.githubusercontent.com/assets/4060187/16970018/2a0e67e8-4de7-11e6-9c19-6bec88ce0941.png)
 
 ## How to use
 
