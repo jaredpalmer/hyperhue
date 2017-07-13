@@ -4,14 +4,14 @@
 
 # HyperHue 💡 🌈
 
-A special theme for [HyperTerm](https://hyperterm.org) that changes color
+A special theme for [HyperTerm](https://hyper.is) that changes color
 based on your Philips Hue lights.
 
 [Demo Video](https://twitter.com/jaredpalmer/status/755539489242611712)
 
 ## How to use
 
-1. Install [HyperTerm](https://hyperterm.org) and add `hyperhue`
+1. Install [HyperTerm](https://hyper.is) and add `hyperhue`
 to `plugins` in `~/.hyperterm.js`.
 2. Press the button on your Hue Bridge.
 3. In HyperTerm, run `node ~/.hyperterm_plugins/node_modules/hyperhue/init.js` . The script generates a new bridge user on your behalf and stores your hostname and light number in `~/.hyperhue.json`. You can change light numbers by simply editing the file.
